@@ -482,13 +482,6 @@ $adminpw = "123456";
                                 <span class="menu-arrow"></span>
                             </a>
                         </li>
-                        <li class="side-nav-item right_10">
-                            <a href="<?php echo $ADMIN_PATH;?>/aboutAuthor.php" class="side-nav-link">
-                                <i class="dripicons-star"></i>
-                                <span> 关于作者</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
             </ul>
