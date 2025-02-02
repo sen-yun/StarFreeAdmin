@@ -120,7 +120,13 @@ if (isset($_POST['auto_update']) && $needUpdate && $downloadUrl) {
 }
 
 ?>
-
+<style>
+    .alert-primary {
+        color: #3b407f;
+        background-color: #fff8fb;
+        border-color: #ffa4e1;
+    }
+</style>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -128,38 +134,86 @@ if (isset($_POST['auto_update']) && $needUpdate && $downloadUrl) {
                 <h4 class="header-title mb-3">版本更新</h4>
                 
                 <div class="alert alert-primary" role="alert">
-                    <h4 class="alert-heading">当前版本: <?php echo $currentVersion['version']; ?></h4>
-                    <p>最新版本: <?php echo isset($latestVersion['version']) ? $latestVersion['version'] . ' ' . $latestVersion['name'] : '未知'; ?></p>
+                    <h4 class="alert-heading">后台当前版本: <?php echo $currentVersion['version']; ?>
+                        <?php if ($needUpdate && $downloadUrl){ ?>
+                            【有更新】
+                        <?php }else{ ?>
+                            【无需更新】
+                        <?php } ?> 
+                    </h4>
+                    <p>后台最新版本: <?php echo isset($latestVersion['version']) ? $latestVersion['version'] . ' ' . $latestVersion['name'] : '未知'; ?></p>
                     <p>最后更新时间: <?php echo isset($lastUpdateTime) ? $lastUpdateTime : '未知'; ?></p>
-                    <?php if ($needUpdate && $downloadUrl): ?>
+                    
                     <hr>
                     <p class="mb-0">
                         <form method="post" style="display: inline;">
-                            <div class="row">
-                                <div class="col-md-6 mb-2 mb-md-0">
-                                    <button type="submit" name="auto_update" class="btn btn-success w-100">
-                                        <i class="mdi mdi-update mr-1"></i> 一键更新后台
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="<?php echo htmlspecialchars($downloadUrlApp); ?>" class="w-100">
-                                        <button type="button" class="btn btn-success w-100">
-                                            <i class="mdi mdi-download mr-1"></i> 下载APP源码
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
+                                
+                                 <?php if ($needUpdate && $downloadUrl){ ?>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mb-2">
+                                            <button type="submit" name="auto_update" class="btn btn-success w-100">
+                                                <i class="mdi mdi-update mr-1"></i> 一键更新后台
+                                            </button>
+                                        </div>
+                                        <div class="col-12 col-md-6 mb-2">
+                                            <a href="<?php echo htmlspecialchars($downloadUrlApp); ?>" class="w-100">
+                                                <button type="button" class="btn btn-success w-100">
+                                                    <i class="mdi mdi-download mr-1"></i> 下载APP源码
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-12 col-md-6 mb-2">
+                                            <button type="button" href="https://www.yuque.com/senyun-ev0j3/starfree/ykha04yba6hiskrx" class="btn btn-success w-100">
+                                                更新教程
+                                            </button>
+                                        </div>
+                                        <div class="col-12 col-md-6 mb-2">
+                                            <a href="https://qm.qq.com/q/u6z3dCTvB6" target="_blank" class="w-100">
+                                                <button type="button" class="btn btn-success w-100">
+                                                    用户交流群
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-2 mb-md-0">
+                                            <a href="<?php echo htmlspecialchars($downloadUrlApp); ?>" class="w-100">
+                                                <button type="button" class="btn btn-success w-100">
+                                                    <i class="mdi mdi-download mr-1"></i> 下载APP源码
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 mb-2 mb-md-0">
+                                            <button type="button" href="https://www.yuque.com/senyun-ev0j3/starfree/ykha04yba6hiskrx" class="btn btn-success w-100">
+                                                更新教程
+                                            </button>
+                                        </div>
+                                        <div class="col-md-4 mb-2 mb-md-0">
+                                            <a href="https://qm.qq.com/q/u6z3dCTvB6" target="_blank" class="w-100">
+                                                <button type="button" class="btn btn-success w-100">
+                                                    用户交流群
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            
                         </form>
-                       
+                       <?php if ($needUpdate && $downloadUrl): ?>
                         <p class="mt-2 text-black">
                             <small>
+                            更新注意事项：<br>
+                            • 一键更新前如果修改过后台路径的请改回/admin 否则无法正常覆盖后台文件！<br>
                             • 一键更新仅更新StarFree后台程序<br>
-                            • API更新请参考文档的更新教程，执行一键更新命令<br>
-                            • APP更新需手动下载源码，并重新打包
+                            • API更新请参考文档的更新教程<br>
+                            • APP更新需手动下载源码，并重新打包<br>
+                            • 更新有任何问题请看<a href="https://www.yuque.com/senyun-ev0j3/starfree/ykha04yba6hiskrx" target="_blank">更新教程</a> 或 <a href="https://qm.qq.com/q/u6z3dCTvB6" target="_blank">加交流群</a>
                             </small>
                         </p>
+                         <?php endif; ?>
                     </p>
-                    <?php endif; ?>
+                    
                 </div>
 
                 <?php if (!empty($versions)): ?>

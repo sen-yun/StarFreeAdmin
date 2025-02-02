@@ -41,7 +41,7 @@ include_once 'Menu.php';
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 强大的软件库模块</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 圈子体系模块</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 版主权限体系</li>
-                                    <li class="mb-2"><i class="mdi mdi-check-circle text-danger mr-2"></i> 智能AI模块</li>
+                                    <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 智能AI模块</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 用户邀请码拉新</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 视频激励广告</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 文章资讯模块</li>
