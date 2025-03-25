@@ -119,6 +119,8 @@ $czof4 = (int) $row1['Yipay'];
 
 $tixian = (int) $row1['Withdrawals'];
 $qqlogin  =  (int) $row1['Qlogin'];
+$wxlogin  =  (int) $row1['wxlogin'];
+$wblogin  =  (int) $row1['wblogin'];
 $qqgroup  =  $row1['Qgroup']; 
 $correctPassword = $row1['Viewspw'];
 
