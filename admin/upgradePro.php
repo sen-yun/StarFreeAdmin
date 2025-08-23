@@ -29,6 +29,7 @@ include_once 'Menu.php';
                                     <h6 class="mt-4 mb-3 text-primary" style="color: #6c757d !important;">免费功能</h6>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> Free版简约UI</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> Free版强大后台</li>
+                                    <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> Free版插件模块</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 论坛帖子模块</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 社交动态模块</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 知识付费模块</li>
@@ -38,7 +39,7 @@ include_once 'Menu.php';
 
                                     <h6 class="mt-4 mb-3 text-primary" style="color: #6c757d !important;">待解锁功能</h6>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 丰富的自定义UI排版</li>
-                                    <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 强大的软件库模块</li>
+                                    <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 更强大的软件库</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 圈子体系模块</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 版主权限体系</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 智能AI模块</li>
@@ -50,7 +51,8 @@ include_once 'Menu.php';
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 带图评论支持</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 用户性别、实名、蓝V认证</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 自定义等级会员图标</li>
-                                    <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 新增主题、插件商城</li>
+                                    <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> Pro版插件、主题商城</li>
+                                    <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 免费解锁所有官方插件、主题</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 打包IOS/微信小程序</li>
                                     <li class="mb-2"><i class="mdi mdi-close-circle text-danger mr-2"></i> 作者售后服务支持</li>
                                 </ul>
@@ -85,7 +87,7 @@ include_once 'Menu.php';
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 支持自定义等级会员图标</li>
                                     
                                     <h6 class="mt-4 mb-3 text-primary" style="color: #6c757d !important;">更多介绍</h6>
-                                    <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 新增主题、插件商城</li>
+                                    <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 更多的主题、插件</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 所有官方插件、主题免费</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> IOS/安卓/H5/微信小程序</li>
                                     <li class="mb-2"><i class="mdi mdi-check-circle text-success mr-2"></i> 后续永久免费包更新</li>
@@ -111,11 +113,10 @@ include_once 'Menu.php';
 
                 <div class="alert alert-success mt-4" role="alert">
                     <h4 class="alert-heading">升级说明</h4>
-                    <p>1. 升级可继承StarFree现有数据</p>
+                    <p>1. 升级可继承StarFree现有数据（包括官方的软件库插件）</p>
                     <p>2. 升级后解锁所有Pro高级功能</p>
                     <p>3. 升级后拥有售后服务支持</p>
                     <p>4. 升级后永久免费包更新</p>
-                   
                     <hr>
                     <p class="mb-0">如有疑问，请加入Star产品官方群了解更多，QQ群号：752454468【联系管理员-森云】</p>
                 </div>

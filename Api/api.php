@@ -63,6 +63,7 @@ $data = array(
         'viptctext' => $viptctext,
         'renwutext' => $renwutext,
         'jingyantext' => $jingyantext,
+        'kehu' => $api_site,
         'vipzk' => $vipzk,
         'dsstyle' => $dsstyle,
         'shareof' => $shareof,
@@ -127,35 +128,33 @@ $data = array(
     echo $response;
 }
 
-
-
-// if ($act === 'vip') {
-//     $token = $_GET['token'];
-//     $user_result = userVerify($token);
-//     if ($user_result['code'] !== 200) {
-//         $response = array("code" => $user_result['code'], "msg" => $user_result['msg']);
-//         header('Content-Type: application/json');
-//         echo json_encode($response);
-//         exit();
-//     }
-//     $uid = $user_result['data']['uid'];
-//     $stmt = $db->prepare("SELECT vip FROM ".$db_prefix."_users WHERE uid = ?");
-//     $stmt->bind_param("s", $uid);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     if ($result->num_rows === 0) {
-//         $response = array("code" => 1, "msg" => "你的账号出错，请联系客服");
-//         header('Content-Type: application/json');
-//         echo json_encode($response);
-//         exit();
-//     } else {
-//         $row = $result->fetch_assoc();
-//         $vip = $row['vip'];
-//         $response = array('vip' => $vip);
-//     }
-//     header('Content-Type: application/json');
-//     echo json_encode($response);
-// }
+if ($act === 'vip') {
+    $token = $_GET['token'];
+    $user_result = userVerify($token);
+    if ($user_result['code'] !== 200) {
+        $response = array("code" => $user_result['code'], "msg" => $user_result['msg']);
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit();
+    }
+    $uid = $user_result['data']['uid'];
+    $stmt = $db->prepare("SELECT vip FROM ".$db_prefix."_users WHERE uid = ?");
+    $stmt->bind_param("s", $uid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows === 0) {
+        $response = array("code" => 1, "msg" => "你的账号出错，请联系客服");
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit();
+    } else {
+        $row = $result->fetch_assoc();
+        $vip = $row['vip'];
+        $response = array('vip' => $vip);
+    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
 
 if($act=="fenlei"){
 if (isset($_GET['id'])) {
@@ -481,6 +480,37 @@ if($act=="qzxz"){
 
     header('Content-Type: application/json');
     echo $json;
+}
+
+if ($act == "getPlugins") {
+  $pluginDir = __DIR__ . '/../Plugins'; 
+    $pluginArray = [];
+    $cacheKey = $redis_prefix.'_StarGetPlugin';
+
+    $cachedPlugins = $redis->get($cacheKey);
+    if ($cachedPlugins !== false) {
+        $pluginArray = json_decode($cachedPlugins, true);
+    } else {
+        $dirs = array_filter(glob($pluginDir . '/*'), 'is_dir');
+        foreach ($dirs as $dir) {
+            $configFile = $dir . '/config.ini';
+            if (file_exists($configFile)) {
+                $config = parse_ini_file($configFile, true);
+                if (isset($config['plugin']) && $config['plugin']['enabled'] == 'true' && $config['plugin']['installed'] == 'true') {
+                    $pluginArray[] = $config['plugin']['filename'];
+                }
+            }
+        }
+        $redis->setex($cacheKey, 7 * 24 * 60 * 60, json_encode($pluginArray));
+    }
+
+    $response = [
+        'code' => 200,
+        'msg' => '请求成功',
+        'data' => $pluginArray
+    ];
+
+    echo json_encode($response);
 }
 
 function userVerify($user_token = null) {
