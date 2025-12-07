@@ -145,6 +145,19 @@ if (isset($_POST['auto_update']) && $needUpdate && $downloadUrl) {
                     <p>最后更新时间: <?php echo isset($lastUpdateTime) ? $lastUpdateTime : '未知'; ?></p>
                     
                     <hr>
+                    <?php if ($needUpdate && $downloadUrl): ?>
+                        <p class="mt-2 text-black">
+                            <small>
+                            更新注意事项【必读】：<br>
+                            • 若当前版本与新版本之间存在版本跳跃（比如：1.0 到 1.2），请务必手动更新，否则会造成文件缺失！<br>
+                            • 后台一键更新仅更新StarFree后台程序！<br>
+                            • 一键更新前<B><span style="color:red">如果修改过后台路径的请改回/admin</span></B> 否则无法正常覆盖后台文件！<br>
+                            • <B><span style="color:red">API更新请参考文档的更新教程</span></B><br>
+                            • <B><span style="color:red">APP更新需手动下载源码，并重新打包</span></B><br>
+                            • 更新有任何问题请看<a href="https://www.yuque.com/senyun-ev0j3/starfree/ykha04yba6hiskrx" target="_blank">更新教程</a> 或 <a href="https://qm.qq.com/q/u6z3dCTvB6" target="_blank">加交流群</a>
+                            </small>
+                        </p>
+                         <?php endif; ?>
                     <p class="mb-0">
                         <form method="post" style="display: inline;">
                                 
@@ -200,18 +213,7 @@ if (isset($_POST['auto_update']) && $needUpdate && $downloadUrl) {
                                 <?php } ?>
                             
                         </form>
-                       <?php if ($needUpdate && $downloadUrl): ?>
-                        <p class="mt-2 text-black">
-                            <small>
-                            更新注意事项：<br>
-                            • 一键更新前如果修改过后台路径的请改回/admin 否则无法正常覆盖后台文件！<br>
-                            • 一键更新仅更新StarFree后台程序<br>
-                            • API更新请参考文档的更新教程<br>
-                            • APP更新需手动下载源码，并重新打包<br>
-                            • 更新有任何问题请看<a href="https://www.yuque.com/senyun-ev0j3/starfree/ykha04yba6hiskrx" target="_blank">更新教程</a> 或 <a href="https://qm.qq.com/q/u6z3dCTvB6" target="_blank">加交流群</a>
-                            </small>
-                        </p>
-                         <?php endif; ?>
+                       
                     </p>
                     
                 </div>

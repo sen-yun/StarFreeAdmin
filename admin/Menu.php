@@ -421,6 +421,36 @@ $adminpw = "123456";
                     </ul>
                 </li>
                 <li class="side-nav-item">
+                    <a href="#" class="side-nav-link">
+                        <i class="dripicons-cloud"></i>
+                        <span>扩展管理</span> 
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="metismenu side-nav">
+                        <!-- <li class="side-nav-item right_10">
+                            <a href="<?php //echo $ADMIN_PATH;?>/themeStore.php" class="side-nav-link">
+                                <i class="dripicons-store"></i>
+                                <span>主题商城</span> 
+                                <span class="menu-arrow"></span>
+                            </a>
+                        </li> -->
+                        <!-- <li class="side-nav-item right_10">
+                            <a href="<?php  //echo $ADMIN_PATH;?>/pluginStore.php" class="side-nav-link">
+                                <i class="dripicons-cart"></i>
+                                <span>插件商城</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                        </li> -->
+                        <li class="side-nav-item right_10">
+                            <a href="<?php echo $ADMIN_PATH;?>/pluginAdmin.php" class="side-nav-link">
+                                <i class="dripicons-folder-open"></i>
+                                <span>插件管理</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="side-nav-item">
                     <a href="<?php echo $ADMIN_PATH;?>/lovelist.php" class="side-nav-link">
                         <i class="dripicons-lock"></i>  
                         <span> 后台安全</span> 
@@ -482,8 +512,16 @@ $adminpw = "123456";
                                 <span class="menu-arrow"></span>
                             </a>
                         </li>
+                        
                     </ul>
                 </li>
+                
+                <?php
+                if (file_exists('pluginMenu.php')) {
+                    include_once 'pluginMenu.php';
+                }
+                ?>
+                
             </ul>
             <div class="clearfix"></div>
         </div>
